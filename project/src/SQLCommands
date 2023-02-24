@@ -1,1 +1,11 @@
-Select * from Customers;
+
+
+
+create Table Accountant(
+    -> accountantID int PRIMARY KEY AUTO_INCREMENT,
+    -> name varchar(20) not null,
+    -> username varchar(20) not null,
+    -> password varchar(20) not null,
+    -> email varchar(20) unique not null);
+    
+    insert into accountant(accountantId,name,username,password,email) values(1,"Dhiraj","DCS1997","12345","dhiraj@gmail.com");
