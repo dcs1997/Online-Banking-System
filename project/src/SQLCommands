@@ -9,3 +9,17 @@ create Table Accountant(
     -> email varchar(20) unique not null);
     
     insert into accountant(accountantId,name,username,password,email) values(1,"Dhiraj","DCS1997","12345","dhiraj@gmail.com");
+    
+    
+    
+    create table Customer(
+    -> accountNo bigint primary key auto_increment,
+    -> name varchar(20) not null,
+    -> email varchar(30) not null,
+    -> password varchar(20) not null,
+    -> Aadhar bigint not null,
+    -> phone bigint not null,
+    -> address varchar(100) not null,
+    -> balance int not null);
+    
+    alter table customer auto_increment=490100010001;
