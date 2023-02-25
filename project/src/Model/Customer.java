@@ -1,18 +1,18 @@
 package Model;
 
 public class Customer {
-	private int accountNo;
+	private long accountNo;
 	private String name;
 	private String email;
 	private String password;
-	private int aadharNo;
-	private int phone;
+	private long aadharNo;
+	private long phone;
 	private String address;
 	private int balance;
 	public Customer() {
 		super();
 	}
-	public Customer(int accountNo, String name, String email, String password, int aadharNo, int phone, String address,
+	public Customer(long accountNo, String name, String email, String password, long aadharNo, long phone, String address,
 			int balance) {
 		super();
 		this.accountNo = accountNo;
@@ -24,10 +24,10 @@ public class Customer {
 		this.address = address;
 		this.balance = balance;
 	}
-	public int getAccountNo() {
+	public long getAccountNo() {
 		return accountNo;
 	}
-	public void setAccountNo(int accountNo) {
+	public void setAccountNo(long accountNo) {
 		this.accountNo = accountNo;
 	}
 	public String getName() {
@@ -48,16 +48,16 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getAadharNo() {
+	public long getAadharNo() {
 		return aadharNo;
 	}
-	public void setAadharNo(int aadharNo) {
+	public void setAadharNo(long aadharNo) {
 		this.aadharNo = aadharNo;
 	}
-	public int getPhone() {
+	public long getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(long phone) {
 		this.phone = phone;
 	}
 	public String getAddress() {
