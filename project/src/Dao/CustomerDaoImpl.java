@@ -37,4 +37,29 @@ public class CustomerDaoImpl implements CustomerDao{
 		return res;
 	}
 
+	@Override
+	public int viewBalance(long accountNo) throws CustomerExp {
+		// TODO Auto-generated method stub
+		int response = -1;
+		
+		try(Connection conn=DBUtil.ProvideConnection()) {
+			
+			PreparedStatement ps = conn.prepareStatement("select balance from Customer where accountNo = ?");
+			ps.setLong(1, accountNo);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next())  response = rs.getInt("balance");
+				
+			 else throw new CustomerExp("Invalid Account Number.");
+			
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(e.getMessage());
+		}
+		
+		return response;
+	}
+
 }
