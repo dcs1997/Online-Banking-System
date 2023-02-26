@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import Dao.CustomerDao;
 import Dao.CustomerDaoImpl;
+import Main.Main;
 
 public class CustomerLogin {
 
@@ -24,13 +25,17 @@ public class CustomerLogin {
 		
 		try {
 			String res=dao.CustomerLogin(email, password);
-			System.out.println(res);
+			System.out.println("Updated balance is "+res);
+
+            Main.CustomerFunctionality();
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			
 			System.out.println(e.getMessage());
+			Main.Bank_sys();
 		}
+		sc.close();
 	}
 
 }

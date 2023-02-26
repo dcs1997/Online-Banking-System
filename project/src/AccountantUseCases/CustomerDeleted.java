@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import Dao.AccountantDao;
 import Dao.AccountantDaoImpl;
+import Main.Main;
 
 public class CustomerDeleted {
 
@@ -28,6 +29,7 @@ Scanner sc = new Scanner(System.in);
 		try {
 			String result = dao.deleteCustomer(accountNo,password);
 			System.out.println(result);
+			Main.AccountantFunctionality();
 			
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import Dao.AccountantDao;
 import Dao.AccountantDaoImpl;
+import Main.Main;
 
 public class UpdatePhoneNumber {
 
@@ -24,10 +25,12 @@ public class UpdatePhoneNumber {
 			try {
 				String result = dao.updatePhone(phone, accountNo);
 				System.out.println(result);
+				Main.AccountantFunctionality();
 				
 			} catch (Exception e) {
 				// TODO: handle exception
 				System.out.println(e.getMessage());
+				Main.AccountantFunctionality();
 				
 			}
 	sc.close();

@@ -1,6 +1,6 @@
 package Model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class Bank_Transaction {
 	

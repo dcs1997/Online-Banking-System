@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import Dao.AccountantDao;
 import Dao.AccountantDaoImpl;
+import Main.Main;
 
 public class UpdateAadharNumber {
 
@@ -24,6 +25,7 @@ public class UpdateAadharNumber {
 			try {
 				String result = dao.updateAadhar(accountNo, aadhar);
 				System.out.println(result);
+				Main.AccountantFunctionality();
 				
 			} catch (Exception e) {
 				// TODO: handle exception

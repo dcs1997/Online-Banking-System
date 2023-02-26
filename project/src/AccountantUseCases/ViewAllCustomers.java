@@ -6,6 +6,7 @@ import java.util.List;
 
 import Dao.AccountantDao;
 import Dao.AccountantDaoImpl;
+import Main.Main;
 import Model.Customer;
 
 public class ViewAllCustomers {
@@ -43,6 +44,8 @@ public class ViewAllCustomers {
 				
 			});
 			
+			
+			Main.AccountantFunctionality();
 			
 			
 		} catch (Exception e) {
