@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import Exception.AccountantExp;
 import Exception.CustomerExp;
+import Model.Customer;
 import Utility.DBUtil;
 
 public class AccountantDaoImpl implements AccountantDao{
@@ -225,6 +228,141 @@ String res="Customer's password is not updated";
 		}
 		
 		return res;
+	}
+
+	@Override
+	public String deleteCustomer(long accountNo,String password) throws CustomerExp {
+		// TODO Auto-generated method stub
+		String res="Account is not deleted";
+		
+		try(Connection conn=DBUtil.ProvideConnection()) {
+			PreparedStatement ps= conn.prepareStatement("Delete from customer where accountNo=? AND password=?");
+			
+			ps.setLong(1, accountNo);
+			ps.setString(2, password);
+			
+			int x=ps.executeUpdate();
+			
+			if(x >0) res="Customer with account number "+accountNo+" is deleted successfully";
+			else throw new CustomerExp(res);
+
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getStackTrace();
+		}
+		
+		return res;
+	}
+
+	@Override
+	public Customer viewCustomer(long accountNo) throws CustomerExp {
+		// TODO Auto-generated method stub
+		Customer cus =new Customer();
+		
+		try(Connection conn=DBUtil.ProvideConnection()) {
+			PreparedStatement ps= conn.prepareStatement("Select * from customer where accountNo=?");
+			
+			ps.setLong(1, accountNo);
+			
+			ResultSet rs =ps.executeQuery();
+			
+			if(rs.next()) {
+				long acc = rs.getLong("accountNo");
+				
+				String n = rs.getString("name");
+				
+				String e = rs.getString("email");
+				
+				String p = rs.getString("password");
+				
+				long adhar = rs.getLong("aadhar");
+				
+                long m = rs.getLong("phone");
+				
+				
+				
+				String ad = rs.getString("address");
+				
+				int b = rs.getInt("balance");
+				
+				
+				
+				
+				
+				
+				
+				cus = new Customer(acc, n, e, p,adhar,m, ad, b);
+			}
+			else throw new CustomerExp("Invalid Account number: ");
+
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getStackTrace();
+		}
+		
+		
+		return cus;
+	}
+
+	@Override
+	public List<Customer> viewAllCustomer() throws CustomerExp {
+		// TODO Auto-generated method stub
+		
+		List<Customer> li = new ArrayList<>();
+		
+		
+		try(Connection conn=DBUtil.ProvideConnection()) {
+			PreparedStatement ps= conn.prepareStatement("Select * from customer");
+			
+			
+			ResultSet rs =ps.executeQuery();
+			
+			while(rs.next()) {
+	
+					
+				
+				long acc = rs.getLong("accountNo");
+				
+				String n = rs.getString("name");
+				
+				String e = rs.getString("email");
+				
+				String p = rs.getString("password");
+				
+				long adhar = rs.getLong("aadhar");
+				
+                long m = rs.getLong("phone");
+				
+				
+				
+				String ad = rs.getString("address");
+				
+				int b = rs.getInt("balance");
+				
+				
+				
+				
+				
+				
+				
+				Customer cus = new Customer(acc, n, e, p,adhar,m, ad, b);
+				li.add(cus);
+			}
+		
+
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getStackTrace();
+		}
+		
+		
+		
+		
+		
+		return li;
 	}
 
 	
