@@ -5,6 +5,7 @@ import java.util.Scanner;
 import Dao.AccountantDao;
 import Dao.AccountantDaoImpl;
 import Exception.AccountantExp;
+import Main.Main;
 
 public class AccountantLogin {
 
@@ -27,14 +28,19 @@ public class AccountantLogin {
 			
 			String result = dao.Login(username, password);
 			System.out.println(result);
+			Main.AccountantFunctionality();
+			
 		} catch (AccountantExp e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
+			Main.Bank_sys();
 		}
 		
 		
 		
 		sc.close();
+		
+		
 		
 		
 	}

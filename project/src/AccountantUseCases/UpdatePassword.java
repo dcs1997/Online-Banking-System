@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import Dao.AccountantDao;
 import Dao.AccountantDaoImpl;
+import Main.Main;
 
 public class UpdatePassword {
 
@@ -23,6 +24,7 @@ Scanner sc = new Scanner(System.in);
 		try {
 			String result = dao.updatePassword(pass, accountNo);
 			System.out.println(result);
+			Main.AccountantFunctionality();
 			
 		} catch (Exception e) {
 			// TODO: handle exception

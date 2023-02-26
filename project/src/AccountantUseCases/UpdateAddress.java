@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import Dao.AccountantDao;
 import Dao.AccountantDaoImpl;
+import Main.Main;
 
 public class UpdateAddress {
 
@@ -24,10 +25,12 @@ Scanner sc = new Scanner(System.in);
 		try {
 			String result = dao.updateAddress(accountNo, address);
 			System.out.println(result);
+			Main.AccountantFunctionality();
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
+			
 			
 		}
 sc.close();

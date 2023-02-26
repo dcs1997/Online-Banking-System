@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import Dao.AccountantDao;
 import Dao.AccountantDaoImpl;
+import Main.Main;
 import Model.Customer;
 
 public class ViewCustomer {
@@ -36,6 +37,8 @@ Scanner sc = new Scanner(System.in);
 			System.out.println("Address: " + c.getAddress());
 			
 			System.out.println("Balance: " + c.getBalance());
+			
+			Main.AccountantFunctionality();
 			
 		} catch (Exception e) {
 			// TODO: handle exception

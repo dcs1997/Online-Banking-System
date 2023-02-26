@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import Dao.AccountantDao;
 import Dao.AccountantDaoImpl;
+import Main.Main;
 
 public class CustomerAdded {
 
@@ -40,13 +41,17 @@ public class CustomerAdded {
 		try {
 			String result = dao.addCustomer(name, email, password, aadhar, phone, address, balance);
 			System.out.println(result);
+			Main.AccountantFunctionality();
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
+			Main.AccountantFunctionality();
 		}
 		
 		sc.close();
+		
+		
 	}
 
 }
