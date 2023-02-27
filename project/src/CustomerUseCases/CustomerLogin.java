@@ -25,7 +25,7 @@ public class CustomerLogin {
 		
 		try {
 			String res=dao.CustomerLogin(email, password);
-			System.out.println("Updated balance is "+res);
+			System.out.println(res);
 
             Main.CustomerFunctionality();
 			

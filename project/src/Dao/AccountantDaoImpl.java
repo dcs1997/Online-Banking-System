@@ -365,6 +365,111 @@ String res="Customer's password is not updated";
 		return li;
 	}
 
+	@Override
+	public int Deposit(long accountNo, int amount) throws CustomerExp {
+		// TODO Auto-generated method stub
+		int result = -1;
+		
+		
+
+		
+		try(Connection conn=DBUtil.ProvideConnection()) {
+			
+			PreparedStatement ps = conn.prepareStatement("update Customer set balance = balance+? where accountNo = ?");
+			ps.setInt(1, amount);
+			ps.setLong(2, accountNo);
+			int res = ps.executeUpdate();
+			
+			if(res > 0) {
+				PreparedStatement ps2 = conn.prepareStatement("insert into Bank_Transaction(accountNo, deposit, timeOfTrans) values(?, ?, NOW())");
+				ps2.setLong(1, accountNo);
+				ps2.setInt(2, amount);
+				
+				int res2 = ps2.executeUpdate();
+				if(res2 > 0) {
+					PreparedStatement ps3 = conn.prepareStatement("select balance from customer where accountNo= ?");
+					ps3.setLong(1, accountNo);
+					
+					
+					ResultSet rs = ps3.executeQuery();
+					if(rs.next()) {
+						result = rs.getInt("balance");
+					} else {
+						throw new CustomerExp("Transaction could not be completed.");
+					}
+				}
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			result = -1;
+		}
+		
+		
+	
+		return result;
+		
+	}
+
+	@Override
+	public int withdraw(long accountNo, int amount) throws CustomerExp {
+		// TODO Auto-generated method stub
+		int result = -1;
+
+		CustomerDao cs = new CustomerDaoImpl();
+				
+				try(Connection conn=DBUtil.ProvideConnection()) {
+					if(amount<0) throw  new CustomerExp("Amount cannot be negative");
+					
+					int previousBal = 0;
+					
+					PreparedStatement psx = conn.prepareStatement("select balance from Customer where accountNo = ?");
+					psx.setLong(1, accountNo);
+					
+					ResultSet rsx = psx.executeQuery();
+					
+					if(rsx.next())  previousBal = rsx.getInt("balance");
+					
+					if(amount <= previousBal) {
+						
+						
+						PreparedStatement ps = conn.prepareStatement("update Customer set balance = balance-? where accountNo=?");
+						ps.setInt(1, amount);
+						ps.setLong(2, accountNo);
+						int res = ps.executeUpdate();
+						
+						if(res > 0) {
+							PreparedStatement ps2 = conn.prepareStatement("insert into Bank_Transaction(accountNo, withdraw, timeOfTrans) values(?, ?, NOW())");
+							ps2.setLong(1, accountNo);
+							ps2.setInt(2, amount);
+							
+							int res2 = ps2.executeUpdate();
+							if(res2 > 0) {
+								PreparedStatement ps3 = conn.prepareStatement("select balance from customer where accountNo= ?");
+								ps3.setLong(1, accountNo);
+								ResultSet rs = ps3.executeQuery();
+								if(rs.next()) {
+									result = rs.getInt("balance");
+								} else {
+									throw new CustomerExp("Error in Transaction completion");
+								}
+							}
+						}
+						
+					} else {
+						throw new CustomerExp("Insufficient Balance...");
+					}
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+					result = -1;
+				}
+		
+
+				
+				return result;
+	}
+
 	
 
 	
