@@ -23,3 +23,15 @@ create Table Accountant(
     -> balance int not null);
     
     alter table customer auto_increment=490100010001;
+    
+    
+    
+    
+    
+    create table Bank_Transaction(
+    -> transId int primary key AUTO_INCREMENT,
+    -> accountNo bigint,
+    -> deposit bigint,
+    -> withdraw bigint,
+    -> timeOfTrans TIMESTAMP default NULL,
+    -> foreign key(accountNo) references customer(accountNo) ON DELETE CASCADE);

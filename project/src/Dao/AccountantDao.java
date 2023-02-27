@@ -38,6 +38,14 @@ public interface AccountantDao {
 	public  Customer viewCustomer(long accountNo) throws CustomerExp;
 	
 	public List<Customer> viewAllCustomer() throws CustomerExp;
+	
+	
+	//customer withdraw and deposit
+	
+    public int Deposit(long accountNo, int amount) throws CustomerExp; 
+	
+	public int withdraw(long accountNo, int amount) throws CustomerExp;
+
 
 	
 	

@@ -11,10 +11,6 @@ public interface CustomerDao {
 	
 	public int viewBalance(long accountNo) throws CustomerExp;
 	
-	public int Deposit(long accountNo, int amount) throws CustomerExp; 
-	
-	public int withdraw(long accountNo, int amount) throws CustomerExp;
-	
 	public String transfer(long acc1, int amount, long acc2) throws CustomerExp;
 	
 	public List<Bank_Transaction> viewTransactionOfCustomer(long accountNo) throws CustomerExp;

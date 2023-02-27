@@ -73,7 +73,11 @@ while(true) {
 				Bank_sys();
 			}
 			
-			else { sc.close(); break;}
+else if(n==3) {
+				
+				System.out.println("Thank you for using DC bank");
+				return;
+			}
 		}
 		
 	}
@@ -99,8 +103,9 @@ while(true) {
 				+ "|  8. Remove the account by account number                     |" + "\n"
 				+ "|  9. View particular account details by giving account number |" + "\n"
 				+ "|  10. View the details of all accountholders                  |" + "\n"
-				+ "|  11. View deposit and withdrawal operations for Customer     |" + "\n"
-				+ "|  12. Back to Main Menu                                       |" + "\n"
+				+ "|  11. Withdraw Money                                          |" +"\n"
+				+ "|  12. Deposit Money                                           |" +"\n"
+				+ "|  13. Back to Main Menu                                       |" + "\n"
 				+ "|                                                              |" + "\n"
 				+ "+==============================================================+" + "\n"
 				+ConsoleColors.RESET);
@@ -167,13 +172,17 @@ while(true) {
 		}
 		
 		else if(n==11) {
-			UpdatePassword.main(null);
+			MoneyWithdraw.main(null);
 					}
 		
 		else if(n==12) {
-			Bank_sys();
+			MoneyDeposit.main(null);
 		}
 		
+		
+		else if(n==13) {
+			Bank_sys();
+		}
 		else {
 			System.out.println("Please enter valid number");
 			AccountantFunctionality();
@@ -192,12 +201,10 @@ while(true) {
 				+ "+================================+" +"\n"
 	 			+ "|                                |" +"\n"
 				+ "|   1. View Balance              |" +"\n"
-				+ "|   2. Deposit Money             |" +"\n"
-				+ "|   3. Withdraw Money            |" +"\n"
-				+ "|   4. Transfer Money            |" +"\n"
-				+ "|   5. View Transaction History  |" +"\n"
-				+ "|   6. LOGOUT                    |" +"\n"
-				+ "|   7. Exit the application      |" +"\n"
+				+ "|   2. Transfer Money            |" +"\n"
+				+ "|   3. View Transaction History  |" +"\n"
+				+ "|   4. LOGOUT                    |" +"\n"
+				+ "|   5. Exit the application      |" +"\n"
 				+ "|                                |" +"\n"
 				+ "+================================+" +"\n"
 				+ConsoleColors.RESET);
@@ -213,35 +220,26 @@ while(true) {
 			
 		}
 		
+		
+		
 		else if(n==2) {
-			MoneyDeposit.main(null);
-			
-		}
-		
-		
-		else if(n==3) {
-			MoneyWithdraw.main(null);
-			
-		}
-		
-		else if(n==4) {
 			MoneyTransfer.main(null);
 			
 		}
 		
-		else if(n==5) {
+		else if(n==3) {
 			CustomerViewAllTransactions.main(null);
 			
 		}
 		
-		else if(n==6) {
+		else if(n==4) {
 			Bank_sys();
 			
 		}
 		
-		else if(n==7) {
+		else if(n==5) {
 			System.out.println("Thank you for Using DC Bank");
-			sc.close(); 
+			return;
 			
 			
 		}

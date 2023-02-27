@@ -2,8 +2,9 @@ package CustomerUseCases;
 
 import java.util.Scanner;
 
-import Dao.CustomerDao;
-import Dao.CustomerDaoImpl;
+import Dao.AccountantDao;
+import Dao.AccountantDaoImpl;
+
 import Main.Main;
 
 public class MoneyWithdraw {
@@ -20,7 +21,8 @@ public class MoneyWithdraw {
 			System.out.println("Enter amount to be withdrawn");
 			int money = sc.nextInt();
 			
-			CustomerDao dao = new CustomerDaoImpl();
+			AccountantDao dao = new AccountantDaoImpl();
+
 			
 			try {
 				
@@ -29,13 +31,13 @@ public class MoneyWithdraw {
 				
 //				if(res<0) System.out.println("Invalid amount to be withdrawn ");
 				 System.out.println(res);
-		            Main.CustomerFunctionality();
+				 Main.AccountantFunctionality();
 
 				
 			} catch (Exception e) {
 				// TODO: handle exception
 				System.out.println(e.getMessage());
-	            Main.CustomerFunctionality();
+				Main.AccountantFunctionality();
 
 			}
 

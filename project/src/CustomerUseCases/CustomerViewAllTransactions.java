@@ -22,7 +22,7 @@ public class CustomerViewAllTransactions {
 		
 		CustomerDao dao = new CustomerDaoImpl();
 		
-		sc.close();
+		
 		
 		
 		
@@ -44,7 +44,7 @@ public class CustomerViewAllTransactions {
             Main.CustomerFunctionality();
 
 		}
-
+		sc.close();
 	}
 
 }

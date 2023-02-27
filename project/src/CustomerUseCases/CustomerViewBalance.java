@@ -36,7 +36,7 @@ public class CustomerViewBalance {
 		} catch (CustomerExp e) {
 			System.out.println(e.getMessage());
 			
-//			Main.CustomerFunctionality();
+			Main.CustomerFunctionality();
 		}
 		sc.close();
 
