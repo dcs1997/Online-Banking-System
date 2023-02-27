@@ -21,3 +21,5 @@ Roles of Customer are
 • Transfer the money from his account to other account
 • Checking the transaction history
 
+![WhatsApp Image 2023-02-27 at 12 17 25 PM](https://user-images.githubusercontent.com/107552890/221494266-76a9ee34-94f1-4030-a020-511e0daf9992.jpeg)
+
